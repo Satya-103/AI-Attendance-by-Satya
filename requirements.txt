@@ -14,7 +14,7 @@ bcrypt
 segno
 pillow
 
-
+setuptools<81
 
 librosa
 resemblyzer
