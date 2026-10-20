@@ -40,16 +40,16 @@ def student_dashboard():
   with st.spinner('Loading your enrolled subjects'):
     subjects=get_student_subject(student_id)
     logs= get_student_attendance(student_id)
-
+    
   stats_map={}
   for log in logs:
-    sid=log('subject_id')
+    sid=log.get('subject_id')
 
     if sid  not in stats_map:
       stats_map[sid]={"total":0,"attended":0}
 
     stats_map[sid]['total'] +=1
-    if logs.get('is_present'):
+    if log.get('is_present'):
       stats_map[sid]['attended']+=1
   cols=st.columns(2)
   for i,sub_node in enumerate(subjects):
